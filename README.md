@@ -2,5 +2,5 @@
 
 1) Danil Povarnicin 
 2) Anvar Khasanov
-#) Sergei Makarov
+3) Sergei Makarov
 
