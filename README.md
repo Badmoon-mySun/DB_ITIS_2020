@@ -1,5 +1,6 @@
 # DB_ITITS_2020
 
-Danil Povarnicin 
-Anvar Khasanov
-Sergei Makarov
+1) Danil Povarnicin 
+2) Anvar Khasanov
+#) Sergei Makarov
+
