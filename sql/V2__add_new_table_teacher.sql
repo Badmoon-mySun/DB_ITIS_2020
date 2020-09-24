@@ -1,0 +1,4 @@
+CREATE TABLE `teacher` (
+	`id` INT NOT NULL AUTO_INCREMENT UNIQUE,
+	PRIMARY KEY (`id`)
+);
