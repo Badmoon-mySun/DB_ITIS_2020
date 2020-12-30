@@ -1,0 +1,58 @@
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+--
+-- Host: localhost    Database: polyclinic
+-- ------------------------------------------------------
+-- Server version	8.0.21
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `employee_has_position`
+--
+
+DROP TABLE IF EXISTS `employee_has_position`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employee_has_position` (
+  `employee_id` int NOT NULL,
+  `position_id` int NOT NULL,
+  `date_from` date NOT NULL,
+  `salary` decimal(10,2) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`employee_id`,`position_id`),
+  KEY `fk_employee_has_position_position1_idx` (`position_id`),
+  KEY `fk_employee_has_position_employee_idx` (`employee_id`),
+  CONSTRAINT `fk_employee_has_position_employee` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`),
+  CONSTRAINT `fk_employee_has_position_position1` FOREIGN KEY (`position_id`) REFERENCES `position` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_has_position`
+--
+
+LOCK TABLES `employee_has_position` WRITE;
+/*!40000 ALTER TABLE `employee_has_position` DISABLE KEYS */;
+INSERT INTO `employee_has_position` VALUES (1,1,'1979-11-06',47400.00,1),(2,2,'1977-05-05',34516.00,1),(3,3,'1998-05-15',30417.00,1),(4,4,'1971-09-19',26905.00,1),(5,5,'1998-01-07',78556.00,1),(6,6,'1975-10-14',76697.00,1),(7,7,'2010-07-26',22886.00,1),(8,8,'1994-06-27',87442.00,1),(9,9,'2007-09-16',44460.00,1),(10,10,'1991-08-23',75798.00,1),(11,11,'2005-01-03',83828.00,1),(12,12,'1978-03-17',82138.00,1),(13,13,'2002-05-04',21098.00,1),(14,14,'2007-11-05',21060.00,1),(15,15,'1972-12-20',78701.00,0),(16,16,'1972-01-07',51400.00,1),(17,17,'1975-07-15',36241.00,1),(18,18,'1981-09-11',21322.00,1),(19,19,'2007-07-23',49404.00,1),(20,20,'2000-08-28',12991.00,0),(21,21,'1974-05-26',99597.00,1),(22,22,'2012-11-18',53172.00,1),(23,23,'1997-07-16',48863.00,1),(24,24,'1977-11-07',56476.00,1),(25,25,'2011-01-25',35308.00,1),(26,26,'1986-11-11',32414.00,1),(27,27,'1977-09-05',45781.00,1),(28,28,'2017-03-26',97000.00,1),(29,29,'2001-06-29',48997.00,0),(30,30,'1972-12-05',88851.00,1),(31,1,'1993-02-13',44009.00,1),(32,2,'1987-06-20',70401.00,1),(33,3,'1992-05-03',43881.00,1),(34,4,'1986-10-18',49471.00,1),(35,5,'2002-08-26',87280.00,1),(36,6,'1987-05-16',31432.00,1),(37,7,'2006-05-12',41287.00,1),(38,8,'1985-12-13',28318.00,1),(39,9,'2003-07-02',81592.00,1),(40,10,'1976-03-18',19549.00,1),(41,11,'1978-02-17',71842.00,1),(42,12,'1982-09-30',14905.00,1),(43,13,'2017-08-10',31933.00,1),(44,14,'2016-10-27',24852.00,1),(45,15,'1970-11-01',32913.00,0),(46,16,'2004-06-07',72099.00,1),(47,17,'1994-06-13',88120.00,1),(48,18,'1992-07-12',51047.00,1),(49,19,'1983-08-28',13142.00,1),(50,20,'1992-02-28',77259.00,1);
+/*!40000 ALTER TABLE `employee_has_position` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-12-24  1:08:49

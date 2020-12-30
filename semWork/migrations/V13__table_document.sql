@@ -1,0 +1,23 @@
+CREATE TABLE `document` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `document_type_id` int NOT NULL,
+  `time_created` datetime NOT NULL,
+  `document_url` varchar(45) NOT NULL,
+  `details` text,
+  `appointment_id` int NOT NULL,
+  `patient_case_id` int NOT NULL,
+  `persona_id` int NOT NULL,
+  `employee_in_department_id` int NOT NULL,
+  PRIMARY KEY (`id`,`document_type_id`,`appointment_id`,`patient_case_id`,`persona_id`,`employee_in_department_id`),
+  KEY `fk_document_document_type1_idx` (`document_type_id`),
+  KEY `fk_document_appointment1_idx` (`appointment_id`),
+  KEY `fk_document_patient_case1_idx` (`patient_case_id`),
+  KEY `fk_document_persona1_idx` (`persona_id`),
+  KEY `fk_document_employee_in_department1_idx` (`employee_in_department_id`),
+  CONSTRAINT `fk_document_appointment1` FOREIGN KEY (`appointment_id`) REFERENCES `appointment` (`id`),
+  CONSTRAINT `fk_document_document_type1` FOREIGN KEY (`document_type_id`) REFERENCES `document_type` (`id`),
+  CONSTRAINT `fk_document_employee_in_department1` FOREIGN KEY (`employee_in_department_id`) REFERENCES `employee_in_department` (`id`),
+  CONSTRAINT `fk_document_patient_case1` FOREIGN KEY (`patient_case_id`) REFERENCES `patient_case` (`id`),
+  CONSTRAINT `fk_document_persona1` FOREIGN KEY (`persona_id`) REFERENCES `persona` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
